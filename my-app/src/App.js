@@ -1,9 +1,11 @@
 import React from 'react';
 import Data from './Data';
-import Navbar from './Navbar';
-import About from './About';
-import Projects from './Projects';
-import Home from './Home';
+import Navbar from './components/Navbar';
+import Skills from './pages/Skills';
+import Projects from './pages/Projects';
+import Home from './pages/Home';
+import Footer from './components/Footer';
+import Contact from './pages/Contact';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 function App() {
@@ -13,9 +15,11 @@ function App() {
       <HomeWrapper />
       <Routes>
         <Route path='/projects' element={<Projects />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/skills' element={<Skills />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
       <DataWrapper />
+      <Footer />
     </div>
   );
 }
