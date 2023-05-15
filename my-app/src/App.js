@@ -18,7 +18,8 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
-      <DataWrapper />
+      {/* <DataWrapper /> */}
+      {/* <ProjectWrapper /> */}
       <Footer />
     </div>
   );
@@ -32,13 +33,21 @@ function HomeWrapper(){
   return null;
 }
 
-function DataWrapper(){
-  const location = useLocation();
-  if(location.pathname === '/projects'){
-    return <Data />;
-  }
-  return null;
-}
+// function DataWrapper(){
+//   const location = useLocation();
+//   if(location.pathname === '/projects'){
+//     return <Data />;
+//   }
+//   return null;
+// }
+
+// function ProjectWrapper(){
+//   const location = useLocation();
+//   if(location.pathname === '/projects'){
+//     return <Projects />;
+//   }
+//   return null;
+// }
 
 export default App;
 
