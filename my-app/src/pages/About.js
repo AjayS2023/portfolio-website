@@ -3,9 +3,9 @@ import ProfessionalImage from '../images/ProfessionalImage.jfif';
 
 function About() {
     return (
-        <div class="about-container">
+        <div className="about-container">
 
-            <div class="content">
+            <div className="content">
                 <h1 className="header">About Ajay Shankar</h1>
                 <img src={ProfessionalImage} />
                 <p>
