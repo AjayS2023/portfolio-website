@@ -1,141 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function Projects() {
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    async function fetchProjects() {
+        const response = await fetch('http://localhost:4000/api/projects');
+        const data = await response.json();
+        setProjects(data);
+        setLoading(false);
+    }
+
+    useEffect(() => {
+        console.log('useEffect called');
+        fetchProjects();
+    }, []);
+
     return (
-        <div class="card-container">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card Title</h5>
-                    <p class="card-text">Card description goes here.</p>
-                    <button class="btn btn-primary">Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card Title</h5>
-                    <p class="card-text">Card description goes here.</p>
-                    <button class="btn btn-primary">Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card Title</h5>
-                    <p class="card-text">Card description goes here.</p>
-                    <button class="btn btn-primary">Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Card Title</h3>
-                    <p class="card-text"> Card description goes here.</p>
-                    <button>Button Text</button>
-                </div>
-            </div>
+        <div className="card-container">
+            {loading ? (
+                <div>Loading...</div>
+            ) : (
+                projects.map((project) => (
+                    <div className="card" key={project._id}>
+                        <div className="card-body">
+                            <h5 className="card-title">{project.title}</h5>
+                            <p className="card-text">{project.description}</p>
+                            <p> <a href="github.com"> {project.deployLink} </a> </p>
+                            <a href={project.link} className="btn btn-primary">
+                                Visit Site
+                            </a>
+                            {/* erase <a> tag from css later */}
+                        </div>
+                    </div>
+                ))
+            )}
         </div>
     );
 }
