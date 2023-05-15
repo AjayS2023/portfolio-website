@@ -58,8 +58,7 @@ a {
   text-underline-offset: 5px;
 }
 
-nav a:hover,
-nav a.active {
+nav a:hover{
   text-decoration: underline;
 }
 
@@ -165,4 +164,8 @@ img {
 /* main content section for each page */
 .main{
   padding-top: 2rem;
+}
+
+a{
+  color: black;
 }
