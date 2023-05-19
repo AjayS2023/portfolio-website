@@ -24,13 +24,12 @@ function Projects() {
                 projects.map((project) => (
                     <div className="card" key={project._id}>
                         <div className="card-body">
-                            <h5 className="card-title">{project.title}</h5>
+                            <h3 className="card-title">{project.title}</h3>
                             <p className="card-text">{project.description}</p>
-                            <p> <a href="github.com"> {project.deployLink} </a> </p>
-                            <a href={project.link} className="btn btn-primary">
-                                Visit Site
-                            </a>
-                            {/* erase <a> tag from css later */}
+                            <h5 className="card-text">{project.techUsed}</h5>
+                            <button>
+                                <a href="https://github.com">Visit Site</a>{project.githublink}
+                            </button>
                         </div>
                     </div>
                 ))
