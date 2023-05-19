@@ -1,5 +1,4 @@
 import React from 'react';
-import Data from './Data';
 import Navbar from './components/Navbar';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -18,36 +17,18 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
-      {/* <DataWrapper /> */}
-      {/* <ProjectWrapper /> */}
       <Footer />
     </div>
   );
 }
 
-function HomeWrapper(){
+function HomeWrapper() {
   const location = useLocation();
-  if(location.pathname === '/'){
+  if (location.pathname === '/') {
     return <Home />;
   }
   return null;
 }
-
-// function DataWrapper(){
-//   const location = useLocation();
-//   if(location.pathname === '/projects'){
-//     return <Data />;
-//   }
-//   return null;
-// }
-
-// function ProjectWrapper(){
-//   const location = useLocation();
-//   if(location.pathname === '/projects'){
-//     return <Projects />;
-//   }
-//   return null;
-// }
 
 export default App;
 
