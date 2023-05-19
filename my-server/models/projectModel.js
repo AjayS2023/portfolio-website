@@ -13,15 +13,11 @@ const projectSchema = new Schema({
         type: String,
         required: true
     },
-    technologies: {
-        type: [String],
-        required: true
-    },
-    githubLink: {
+    techUsed: {
         type: String,
         required: true
     },
-    deployLink: {
+    githubLink: {
         type: String,
         required: true
     }
