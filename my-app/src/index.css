@@ -71,7 +71,7 @@ nav a:hover{
 }
 
 .card-container {
-  margin-top: 5rem;
+  /* margin-top: 5rem; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1rem;
@@ -115,8 +115,10 @@ body{
   text-decoration: underline;
 }
 
-.home-page{
+.home-page {
   padding-top: 5rem; 
+  display: flex;
+  justify-content: center;
 }
 
 .about-container {
@@ -150,4 +152,24 @@ img {
 /* main content section for each page */
 .main{
   padding-top: 2rem;
+}
+
+h5{
+  font-weight: normal;
+}
+
+.content a{
+  color: blue;
+  text-decoration: underline;
+}
+
+.projects-header {
+  text-align: center;
+  /* padding-top: 5rem; 
+  display: flex;
+  justify-content: right; */
+}
+
+.project-container{
+  padding-top: 5rem;
 }
