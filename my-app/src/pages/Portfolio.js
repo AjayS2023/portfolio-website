@@ -5,7 +5,7 @@ function Projects() {
     const [loading, setLoading] = useState(true);
 
     async function fetchProjects() {
-        const response = await fetch('http://localhost:4000/api/projects');
+        const response = await fetch('https://my-portfolio-server-440s.onrender.com/api/projects');
         const data = await response.json();
         setProjects(data);
         setLoading(false);
