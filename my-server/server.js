@@ -25,13 +25,6 @@ app.use('/api/portfolio', projectRoutes);
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('Connected to the database');
-
-        app.use(express.static(path.join(__dirname, 'my-app', 'build')));
-
-        app.get('*', (req, res) => {
-            res.sendFile(path.join(__dirname, 'my-app', 'build', 'index.html'));
-        });
-
         app.listen(process.env.PORT, () => {
             console.log('Server is listening on port ' + process.env.PORT);
         });
@@ -39,3 +32,9 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((err) => {
         console.log(err);
     });
+
+app.use(express.static(path.join(__dirname, 'my-app', 'build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'my-app', 'build', 'index.html'));
+});
