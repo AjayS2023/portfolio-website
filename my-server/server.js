@@ -3,17 +3,14 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const projectRoutes = require('./routes/projectRoutes');
-const path = require('path');
-
-
 
 const app = express();
 
 app.use(cors());
 
-// app.get('/', (req, res) =>{
-//     res.send('Hello. Welcome to the website.');
-// });
+app.get('/', (req, res) =>{
+    res.send('Hello. Welcome to the website.');
+});
 
 app.use((req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
@@ -33,8 +30,3 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(err);
     });
 
-app.use(express.static(path.join(__dirname, 'my-app', 'build')));
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'my-app', 'build', 'index.html'));
-});
