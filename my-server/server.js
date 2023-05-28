@@ -18,7 +18,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/api/projects', projectRoutes);
+app.use('/api/portfolio', projectRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
