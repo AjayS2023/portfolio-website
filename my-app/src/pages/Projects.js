@@ -4,7 +4,7 @@ function Projects() {
 
     return (
         <div className="project-container">
-            <h1 className="projects-header"> Full-Stack Development Portfolio </h1>
+            <h1 className="projects-header"> My Projects </h1>
             <div className="card-container">
 
                 <div className="card">
